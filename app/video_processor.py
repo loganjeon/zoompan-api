@@ -57,6 +57,11 @@ class VideoProcessor:
                     crop_height = img_height
                     crop_width = int(crop_height * 9/16)
             
+            if output_width % 2 == 1:
+                output_width += 1
+            if output_height % 2 == 1:
+                output_height -= 1
+            
             # 왼쪽에서 오른쪽으로 패닝하는 효과 생성
             # 패닝 범위 계산 (이미지 너비 - 크롭 너비)
             panning_range = max(0, img_width - crop_width)
